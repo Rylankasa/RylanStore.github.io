@@ -9,12 +9,12 @@ function plusSlides(n) {
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("slides");
-    if (n > slides.length) {slideIndex = 1}    
+    if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].style.display = "none";
     }
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndex-1].style.display = "block";
 }
 
 
@@ -49,10 +49,12 @@ function carttotal(){
     for (var i=0;i<cartItem.length;i++){
         var inputValue = cartItem[i].querySelector("input").value
         var productPrice = cartItem[i].querySelector(".price").innerHTML
-        totalA = inputValue*productPrice*1000
-        totalC = totalC + totalA
+        var inputValuee = parseFloat(inputValue);
+        var productPricee = parseFloat(productPrice);
+        priceTotalA = inputValuee*productPricee*1000000
+        totalC = totalC + priceTotalA
         // totalD = totalC.toLocaleString('de-DE')
-        // console.log(totalD)
+        // console.log(typeof(totalC))
     }
     var cartTotalA = document.querySelector(".price-total span")
     var cartTotalB = document.querySelector(".icons span")
