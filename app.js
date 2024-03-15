@@ -33,7 +33,7 @@ button.addEventListener( 'click',function(event){
 })
 function addcart(productImg,productName,productPrice){
     var addtr = document.createElement("tr")
-    var trcontent = '<tr><td style="color: #000;display: flex;align-items: center;"><img width="80px" src="'+productImg+'" alt=""><span class="title" style="color: #000;">'+productName+'</span></td><td><p><span class="price" style="color: #000;">'+productPrice+'</span><sup>đ</sup></p></td><td><input style="color: #000;width: 30px;overflow: none;" type="number" value="1" min="1"></td><td style="color: #000;cursor: pointer;"><span class="delete" style="color: #000;">Xóa</span></td></tr>'
+    var trcontent = '<tr><td style="color: #000;display: flex;align-items: center;"><img width="70px" src="'+productImg+'" alt=""><span class="title" style="color: #000;font-size:12px;">'+productName+'</span></td><td><p><span class="price" style="color: #000;font-size:14px;">'+productPrice+'</span><sup>đ</sup></p></td><td><input style="color: #000;width: 30px;overflow: none;" type="number" value="1" min="1"></td><td style="color: #000;cursor: pointer;"><span class="delete" style="color: #000;">Xóa</span></td></tr>'
     addtr.innerHTML = trcontent
     var cartTable = document.querySelector('tbody')
     // console.log(cartTable)
