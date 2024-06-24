@@ -8,8 +8,8 @@
     <link
 			rel="icon"
 			type="image/x-icon"
-			href="Zenitsu.png"
-		/>
+			href="images/Zenitsu.png"
+	/>
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -17,7 +17,7 @@
     <div class="container">
         <header>
                 <div class="logo">
-                    <img src="Zenitsu.png" alt="">
+                    <img src="images/Zenitsu.png" alt="">
                     <h1>
                         R y l a n <br>
                         S t o r e
@@ -26,7 +26,7 @@
                 <div class="menu">
                     <ul>
                         <li class="has-child"><a href="#">SẢN PHẨM</a>
-                                <ul class="sub-menu">
+                                <ul class="sub-menu"></li>
                                     <li><a href="#">CẤU HÌNH HYPERPC</a></li>
                                     <li><a href="#">CPU</a></li>
                                     <li><a href="#">GEAR</a></li>
@@ -57,13 +57,25 @@
                 <div class="icons">
                     <ul>
                         <li class="input">
-                                <div id="input">
-                                    <input type="text">
+                                <div>
+                                    <input id="input" type="text">
                                 </div>
                                 <i class="fa-solid fa-magnifying-glass"></i>
                         </li>
                         <li><i class="fa-solid fa-heart"></i></li>
-                        <li><i class="fa-solid fa-basket-shopping"></i><span>0</span></li>
+                        <li id="cart"><i class="fa-solid fa-basket-shopping"></i><span>0</span>
+                            <section class="cart">
+                                <i class="fa-solid fa-caret-up"></i>
+                                <form action="">
+                                        <div class="producct"></div>
+                                    <div class="price-total">
+                                        <p>Tổng tiền: </p>
+                                        <p><span>0</span><sup style="color: #6d6d6d;">đ</sup></p>
+                                    </div>
+                                </form>
+                                <button>THANH TOÁN</button>
+                            </section>
+                        </li>
                     </ul>
                 </div>
         </header>
@@ -72,25 +84,21 @@
 
         <div class="slideshow-container">
             <div class="slides">
-              <img src="banner1.webp" alt="Slide 1">
+                <img src="images/banner1.webp" alt="" id="image">
             </div>
-            <div class="slides">
-              <img src="banner2.webp" alt="Slide 2">
-            </div>
-            <div class="slides">
-              <img src="banner3.webp" alt="Slide 3">
-            </div>
-            <button class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-angle-left"></i></button>
-            <button class="next" onclick="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></button>
-          </div>
+            <button class="next" onclick="Next()"><i class="fa-solid fa-angle-right"></i></button>
+            <button class="prev" onclick="Back()"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="auto" onclick="Auto()"><i class="fa-solid fa-play"></i></button>
+            <button class="pause" onclick="Pause()"><i class="fa-solid fa-pause"></i></button>
+        </div>
 
 
 
         <aside>
-            <p><img src="i1.webp" alt=""><span>Tư vấn bởi <br> Chuyên gia</span></p>
-            <p><img src="i2.webp" alt=""><span>Hỗ trợ tả góp online <br> Toàn quốc</span></p>
-            <p><img src="i3.webp" alt=""><span>Bảo hành <br> Chính hãng 100%</span></p>
-            <p><img src="i4.webp" alt=""><span>Miễn phí giao hàng, lắp đặt <br> Toàn quốc</span></p>
+            <p><img src="images/i1.webp" alt=""><span>Tư vấn bởi <br> Chuyên gia</span></p>
+            <p><img src="images/i2.webp" alt=""><span>Hỗ trợ tả góp online <br> Toàn quốc</span></p>
+            <p><img src="images/i3.webp" alt=""><span>Bảo hành <br> Chính hãng 100%</span></p>
+            <p><img src="images/i4.webp" alt=""><span>Miễn phí giao hàng, lắp đặt <br> Toàn quốc</span></p>
         </aside>
 
 
@@ -107,21 +115,21 @@
                             <p class="text">Hiệu năng - Ổn định <br>
                                 là tiêu chí hàng đầu của chúng tôi</p>
                             <p class="button"><a href="#">XEM NGAY</a></p>
-                            <img src="pc-ai-2.webp" alt="">
+                            <img src="images/pc-ai-2.webp" alt="">
                         </div>
                         <div class="product">
                             <h6>WORKSTATION PC</h6>
                             <p class="text">Hiệu năng - Ổn định <br>
                                 là tiêu chí hàng đầu của chúng tôi</p>
                             <p class="button"><a href="#">XEM NGAY</a></p>
-                            <img src="pc-gaming-2.webp" alt="">
+                            <img src="images/pc-gaming-2.webp" alt="">
                         </div>
                         <div class="product">
                             <h6>WORKSTATION PC</h6>
                             <p class="text">Hiệu năng - Ổn định <br>
                                 là tiêu chí hàng đầu của chúng tôi</p>
                             <p class="button"><a href="#">XEM NGAY</a></p>
-                            <img src="pc-ws-2.webp" alt="">
+                            <img src="images/pc-ws-2.webp" alt="">
                         </div>
                     </div>
                 </div>
@@ -187,34 +195,38 @@
                         <div class="products">
                             <div class="product" id="product1">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-3D-01--768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-01--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 01</p>
                                     <p class="cost"><span>14.500.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                    
+                                    <a class="chitiet" href="hyperlab1.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                
                                 </div>
                             </div>
                             <div class="product" id="product2">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-3D-02-768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-02-768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 02</p>
                                     <p class="cost"><span>16.300.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab2.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                             <div class="product" id="product3">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-3D-03--768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-03--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 03</p>
                                     <p class="cost"><span>21.799.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab3.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                             <div class="product" id="product4">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-3D-04--768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-04--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 04</p>
                                     <p class="cost"><span>30.700.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab4.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                         </div>
@@ -231,34 +243,38 @@
                         <div class="products">
                             <div class="product" id="product5">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-Video-Editing-07-768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-05--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 05</p>
                                     <p class="cost"><span>77.500.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab5.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                             <div class="product" id="product6">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-Video-Editing-08-768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-06-768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 06</p>
                                     <p class="cost"><span>83.990.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                   
+                                    <a class="chitiet" href="hyperlab6.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                   
                                 </div>
                             </div>
                             <div class="product" id="product7">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-2D-Graphic-07-768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-07--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 07</p>
                                     <p class="cost"><span>83.990.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab7.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                             <div class="product" id="product8">
                                 <div class="ifo">
-                                    <img src="HyperLAB-–-2D-Graphic-08-768x768.webp" alt="" />
+                                    <a class="anh"><img src="images/HyperLAB-–-3D-08--768x768.webp" alt="" /></a>
                                     <p class="namePC">HyperLAB - 3D 08</p>
                                     <p class="cost"><span>40.100.000</span><sup>đ</sup></p>
-                                    <button>THÊM VÀO GIỎ HÀNG</button>                                       
+                                    <a class="chitiet" href="hyperlab8.html" target="_blank">Xem chi tiết</a>
+                                    <button class="add">THÊM VÀO GIỎ HÀNG</button>                                       
                                 </div>
                             </div>
                         </div>
@@ -266,28 +282,6 @@
                 </div>
             </div>
         </div>
-        <section class="cart">
-            <i class="fa-solid fa-xmark" style="color: #000; font-size: 30px;"></i>
-            <h2>Cart</h2>
-            <form action="">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Số lượng</th>
-                            <th>Chọn</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <div style="text-align: right;" class="price-total">
-                    <p style="color: #000;font-weight: bold;">Tổng tiền: <span style="color: #000;">0</span><sup style="color: #000;">đ</sup></span></p>
-                </div>
-            </form>
-            <button>Đặt hàng</button>
-        </section>
         <div class="item">
             <div class="text">
                 <h2>HyperLAB PC</h2>
@@ -297,7 +291,7 @@
                 <p><span><i class="fa-solid fa-angle-right"></i></span>&emsp;Đội ngũ tư vấn đầu ngành</p>
             </div>
             <div class="image">
-                <img src="banner4.png" alt="">
+                <img src="images/banner4.png" alt="">
             </div>
         </div>
         <div class="whyqs">
@@ -324,30 +318,30 @@
                     được đào tạo chuyên sâu và có tay nghề cao.
                 </p>
             </div>
-        </div>  
+        </div>
         <div class="news">
             <div class="content">
                 <h2>TIN TỨC</h2>
                 <div class="products">
                     <div class="product">
-                        <img src="thumbnail-600x338.webp" alt="">
+                        <img src="images/thumbnail-600x338.webp" alt="">
                         <h6>CPU chơi game TỐT NHẤT 2023</h6>
-                        <div class="gach">_____</div>
+                        <div class="gach">____</div>
                         <p class="text">Chắc chắn đối với nhiều người thì CPU chơi game tốt nhất là CPU mạnh...</p>
                         <p class="button"><a href="#">XEM THÊM</a></p>
                     </div>
                     <div class="product">
-                        <img src="Lenovo-ThinkStation-P920-Installed-NVIDIA-Quadro-RTX-8000-NVLINK-600x398.webp" alt="">
+                        <img src="images/Lenovo-ThinkStation-P920-Installed-NVIDIA-Quadro-RTX-8000-NVLINK-600x398.webp" alt="">
                         <h6>NVLink là gì? – Con đường liên kết đa Card đồ hoạ -</h6>
-                        <div class="gach">_____</div>
+                        <div class="gach">____</div>
                         <p class="text">NVLink là gì và nó hoạt động như thế nào? Các siêu máy tính và...</p>
                         <p class="button"><a href="#">XEM THÊM</a></p>
                     </div>
                     <div class="product">
-                        <img src="14THGENDESKTOP-800x532-1-600x399.webp" alt="">
+                        <img src="images/14THGENDESKTOP-800x532-1-600x399.webp" alt="">
                         <h6>Đánh giá hiệu năng làm việc Intel Core 14Th – Bình</h6>
-                        <div class="gach">_____</div>
-                        <p class="text">Vừa rôig Intel đã cho ra mắt dòng vi xử lí phổ thông thế hệ...</p>
+                        <div class="gach">____</div>
+                        <p class="text">Vừa rồi Intel đã cho ra mắt dòng vi xử lí phổ thông thế hệ...</p>
                         <p class="button"><a href="#">XEM THÊM</a></p>
                     </div>
                 </div>
@@ -359,7 +353,7 @@
         <footer>
             <div class="top">
                 <div class="logo">
-                    <img src="Zenitsu.png" alt="">
+                    <img src="images/Zenitsu.png" alt="">
                     <h1>
                         R y l a n <br>
                         S t o r e
@@ -368,7 +362,7 @@
                 <div class="information">
                     <p><b>CÔNG TY TNHH CÔNG NGHỆ REALTECH</b></p>
                     <p>Địa chỉ: Cổng chợ Mền, Thanh Khê, Thanh Hải, Thanh Liêm, Hà Nam</p>
-                    <p>Hotline: 0355.032.605 – Email hỗ trợ Khách hàng: duongbdph50213@gmail.com</p>
+                    <p>Hotline: 0355.032.605 - Email hỗ trợ Khách hàng: duongbdph50213@gmail.com</p>
                 </div>
             </div>
             <div class="bottom">
@@ -461,7 +455,7 @@
                     <a href="#"><i id="icon2" class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="bottommm">Copyright 2023 © RylanStore. All Right Reserved. Công ty TNHH Công nghệ RealTech. MST: 0110051984.</div>
+            <div class="bottom3">Copyright 2023 © RylanStore. All Right Reserved. Công ty TNHH Công nghệ RealTech. MST: 0110051984.</div>
         </footer>
         <script src="app.js"></script>
     </div>

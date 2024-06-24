@@ -1,26 +1,43 @@
+var index = 0;
+var image = ["images/banner1.webp","images/banner2.webp","images/banner3.webp"];
+var slideShow = document.getElementById("image");
 
-var slideIndex = 1;
-showSlides(slideIndex);
-        
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-        
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+function Next(){
+    index++;
+    if(index > image.length - 1){
+        index = 0;
     }
-    slides[slideIndex-1].style.display = "block";
+    slideShow.style.opacity = 0;
+    setTimeout(function () {
+        slideShow.src = image[index];
+        slideShow.style.opacity = 1;
+    }, 400);
 }
-
+function Back(){
+    index--;
+    if(index < 0){
+        index = image.length - 1;
+    }
+    slideShow.style.opacity = 0;
+    setTimeout(function () {
+        slideShow.src = image[index];
+        slideShow.style.opacity = 1;
+    }, 400);
+}
+let a = 0;
+function Auto(){
+    a = setInterval(function(){
+        Next();
+    }, 1000)
+}
+function Pause(){
+    clearInterval(a);
+}
 
 const btn = document.querySelectorAll(".shop button");
 // console.log(btn);
 btn.forEach(function(button,index){
+// console.log(btn);
 button.addEventListener( 'click',function(event){
     var btnItem = event.target
     var product = btnItem.parentElement
@@ -33,28 +50,23 @@ button.addEventListener( 'click',function(event){
 })
 function addcart(productImg,productName,productPrice){
     var addtr = document.createElement("tr")
-    var trcontent = '<tr><td style="color: #000;display: flex;align-items: center;"><img width="70px" src="'+productImg+'" alt=""><span class="title" style="color: #000;font-size:12px;">'+productName+'</span></td><td><p><span class="price" style="color: #000;font-size:14px;">'+productPrice+'</span><sup>đ</sup></p></td><td><input style="color: #000;width: 30px;overflow: none;" type="number" value="1" min="1"></td><td style="color: #000;cursor: pointer;"><span class="delete" style="color: #000;">Xóa</span></td></tr>'
-    addtr.innerHTML = trcontent
-    var cartTable = document.querySelector('tbody')
-    // console.log(cartTable)
+    var trcontent = '<main class="items"><img src="'+productImg+'" alt=""><div class="nameprice"><nav class="name">'+productName+'</nav><nav class="price">'+productPrice+'<sup>đ</sup></nav></div><i class="fa-regular fa-circle-xmark" style="color: gainsboro; font-size: 20px;"></i></main>'
+    addtr.innerHTML = trcontent 
+    var cartTable = document.querySelector('.producct')
     cartTable.append(addtr)
     carttotal()
     Deletecart()
 }
 
 function carttotal(){
-    var cartItem = document.querySelectorAll("tbody tr")
-    // console.log(cartItem.legth)
+    var cartItem = document.querySelectorAll("main")
     var totalC = 0
     for (var i=0;i<cartItem.length;i++){
-        var inputValue = cartItem[i].querySelector("input").value
         var productPrice = cartItem[i].querySelector(".price").innerHTML
-        var inputValuee = parseFloat(inputValue);
-        var productPricee = parseFloat(productPrice);
-        priceTotalA = inputValuee*productPricee*1000000
+        var productPrice = parseFloat(productPrice);
+        priceTotalA = productPrice*1000000
         totalC = totalC + priceTotalA
-        // totalD = totalC.toLocaleString('de-DE')
-        // console.log(typeof(totalC))
+
     }
     var cartTotalA = document.querySelector(".price-total span")
     var cartTotalB = document.querySelector(".icons span")
@@ -63,36 +75,29 @@ function carttotal(){
 }
 
 function Deletecart(){
-    var cartItem = document.querySelectorAll("tbody tr")
+    var cartItem = document.querySelectorAll("main")
     for( var $i=0;$i<cartItem.length;$i++ ){
-    var productT = document.querySelectorAll(".delete")
-    productT[$i].addEventListener('click', function (event){
-        var cartDelete =  event.target
-        var cartitemR = cartDelete.parentElement.parentElement
-        cartitemR.remove();
-        carttotal()
+        var productT = document.querySelectorAll(".fa-circle-xmark")
+        productT[$i].addEventListener('click', function (event){
+            var cartDelete =  event.target
+            var cartitemR = cartDelete.parentElement.parentElement
+            cartitemR.remove()
+            carttotal()
     })
 
     }
 }
 
-function inputChange(){
-    var cartItem = document.querySelectorAll("tbody tr");
-    for(var i=0;i<cartItem.length;i++) {
-        var inputValue = cartItem[i].querySelector('input')
-        inputValue.addEventListener( "change", function () {
-            carttotal()
-        })
-    }
-}
+const cartbtn = document.querySelector(".fa-heart");
+let isRed = true;
 
-const cartbtn = document.querySelector(".fa-xmark")
-const cartshow = document.querySelector (".fa-basket-shopping")
-cartshow.addEventListener("click",function(){
-    console.log(cartshow)
-    document.querySelector(".cart").style.right="0"
-})
-cartbtn.addEventListener("click",function(){
-    console.log(cartshow)
-    document.querySelector(".cart").style.right="-100%"
-})
+cartbtn.addEventListener("click", function() {
+    if (isRed) {
+        cartbtn.style.color = "red";
+        isRed = false;
+    } else {
+        cartbtn.style.color = "#fff";
+        isRed = true;
+    }
+});
+
